@@ -1,20 +1,20 @@
-import React from "react";
-import clsx from "clsx";
+import { FC, useContext } from 'react';
+import clsx from 'clsx';
 
-import { StepLayout } from "../../StepLayout";
-import { Button } from "../../../Button";
-import { StepInfo } from "../../StepInfo";
+import { StepLayout } from '../../StepLayout';
+import { Button } from '../../../Button';
+import { StepInfo } from '../../StepInfo';
 
-import styles from "./TwitterStep.module.scss";
+import styles from './TwitterStep.module.scss';
+import { RegistrationContext } from '../../../../pages';
 
-export const TwitterStep = () => {
+export const TwitterStep: FC = () => {
+  const { onNextStep } = useContext(RegistrationContext);
+
   return (
     <div className={styles.block}>
-      <StepInfo
-        icon="/static/connect.png"
-        title="Do you want import info from Twitter?"
-      />
-      <StepLayout className={clsx("m-auto mt-40", styles.whiteBlock)}>
+      <StepInfo icon="/static/connect.png" title="Do you want import info from Twitter?" />
+      <StepLayout className={clsx('m-auto mt-40', styles.whiteBlock)}>
         <div className={styles.avatar}>
           <b>AD</b>
           <svg
@@ -32,14 +32,10 @@ export const TwitterStep = () => {
           </svg>
         </div>
         <h2 className="mb-40">Archakov Dennis</h2>
-        <Button>
-          <img
-            src="/static/twitter.svg"
-            alt="Twitter logo"
-            className={styles.twitterLogo}
-          />
+        <Button onClick={onNextStep}>
+          <img src="/static/twitter.svg" alt="Twitter logo" className={styles.twitterLogo} />
           Import from Twitter
-          <img className="d-ib ml-10" src="/static/arrow.svg" />
+          <img className="d-ib ml-10" src="/static/arrow.svg" alt="Import from Twitter" />
         </Button>
         <div className="link mt-20 cup d-ib">Enter my info manually</div>
       </StepLayout>
