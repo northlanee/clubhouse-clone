@@ -7,7 +7,7 @@ import {
   ChooseAvatarStep,
   EnterPhoneStep,
   EnterCodeStep,
-} from '../components/registration/steps';
+} from 'components/registration/steps';
 
 const stepsList = {
   0: WelcomeStep,
